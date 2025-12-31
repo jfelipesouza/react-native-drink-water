@@ -6,6 +6,8 @@ type HistoryItemProps = {
   time: string;
   amount: number;
 };
+
+export type HistoryItemDTO = { time: string; amount: number };
 const HistoryItem = ({ time, amount }: HistoryItemProps) => {
   const {
     theme: { colors },
