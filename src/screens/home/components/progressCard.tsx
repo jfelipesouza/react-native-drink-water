@@ -1,6 +1,6 @@
 import { Trophy } from 'lucide-react-native';
 import { View, Text } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, useUnistyles } from 'react-native-unistyles';
 
 type ProgressCardProps = {
   percentage: number;
@@ -12,12 +12,15 @@ export const ProgressCard = ({
   currentIntake,
   dailyGoal,
 }: ProgressCardProps) => {
+  const {
+    theme: { colors },
+  } = useUnistyles();
   return (
     <View style={styles.card}>
       <View style={styles.progressHeader}>
         <Text style={styles.cardTitle}>Progresso Diário</Text>
         <View style={styles.badge}>
-          <Trophy color={'#dd940d'} size={14} />
+          <Trophy color={colors.orange} size={14} />
           <Text style={styles.badgeText}>Streak: 5 dias</Text>
         </View>
       </View>
