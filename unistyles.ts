@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native-unistyles';
+
 import {
   appThemes,
   AppThemes,
@@ -16,6 +17,6 @@ StyleSheet.configure({
   breakpoints: breakpoints,
   settings: {
     adaptiveThemes: false,
-    initialTheme: 'light',
+    initialTheme: 'dark',
   },
 });
