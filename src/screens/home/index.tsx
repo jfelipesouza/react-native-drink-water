@@ -3,9 +3,10 @@ import { FlatList, ScrollView, StatusBar, Text, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Header } from './components/header';
-import { HistoryItem, HistoryItemDTO } from './components/historyItem';
 import { ProgressCard } from './components/progressCard';
 import { QuickAddButton } from './components/quickAddButton';
+import { HistoryItem, HistoryItemDTO } from './components/historyItem';
+import { dateFormat } from '../../libs/date-format';
 
 type HomeScreenProps = {};
 
@@ -19,20 +20,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
   const percentage = Math.min((currentIntake / dailyGoal) * 100, 100);
 
   const handleAddWater = (amount: number) => {
-    const newDateTime = `${
-      new Date().getHours() < 10
-        ? `0${new Date().getHours()}`
-        : new Date().getHours()
-    }:${
-      new Date().getMinutes() < 10
-        ? `0${new Date().getMinutes()}`
-        : new Date().getMinutes()
-    }:${
-      new Date().getSeconds() < 10
-        ? `0${new Date().getSeconds()}`
-        : new Date().getSeconds()
-    }`;
-    setHistory(prev => [{ amount, time: newDateTime }, ...prev]);
+    const date = new Date();
+    setHistory(prev => [{ amount, time: dateFormat(date) }, ...prev]);
     setCurrentIntake(prev => prev + amount);
   };
 

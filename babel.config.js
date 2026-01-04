@@ -4,13 +4,9 @@ module.exports = function (api) {
   return {
     presets: ['module:@react-native/babel-preset'],
     plugins: [
-      [
-        'react-native-unistyles/plugin',
-        {
-          root: 'src',
-        },
-      ],
+      ['react-native-unistyles/plugin', { root: 'src' }],
       ['react-native-worklets/plugin'],
+      ['@babel/plugin-proposal-decorators', { legacy: true }],
     ],
   };
 };
